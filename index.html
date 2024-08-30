@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Matching Game</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>Hiking Matching Game</h1>
+    </header>
+    <section id="game-container">
+
+			<!-- This is where we display the flip and match counters -->
+      <div id="ui-container">
+        <h3>Flips: <span id="flip-count">0</span></h3>
+        <h3>Matches: <span id="match-count">0</span></h3>
+      </div>
+			
+			<!-- This is where our cards will be rendered -->
+      <div id="card-container">
+      </div>
+      
+    </section>
+
+		<div class="btn-container">
+			<button class="reset-btn" onclick="resetGame()">Reset</button>
+		</div>
+		
+    <script src="https://bit.ly/491fCed"></script>
+    <script src="provided.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
