@@ -167,6 +167,50 @@ function resetGame() {
     setUpGame();
   }
   
+function setUpGame() {
+    console.log("Setting up game...");
+    let cardObjects = createCards(document.getElementById("card-container"), shuffleCardImageClasses());
+
+    if (cardObjects != null) {
+        console.log("Cards created successfully. Adding click events...");
+        for (let i = 0; i < cardObjects.length; i++) {
+            flipCardWhenClicked(cardObjects[i]);
+        }
+    } else {
+        console.error("Failed to create cards!");
+    }
+}
+
+function onCardFlipped(newlyFlippedCard) {
+    console.log("Card flipped:", newlyFlippedCard);
+    incrementCounter('flips', document.getElementById('flip-count'));
+
+    if (lastCardFlipped === null) {
+        console.log("First card flipped, storing reference.");
+        lastCardFlipped = newlyFlippedCard;
+        return;
+    }
+
+    if (!doCardsMatch(lastCardFlipped, newlyFlippedCard)) {
+        console.log("Cards do not match, resetting...");
+        lastCardFlipped.element.classList.remove('flipped');
+        newlyFlippedCard.element.classList.remove('flipped');
+        lastCardFlipped = null;
+        return;
+    }
+
+    console.log("Cards match!");
+    incrementCounter('matches', document.getElementById('match-count'));
+
+    if (counters['matches'] === 6) {
+        winAudio.play();
+        console.log("Game won!");
+    } else {
+        matchAudio.play();
+    }
+
+    lastCardFlipped = null;
+}
 
 // ⛔️ Set up the game. Do not edit below this line! ⛔
 setUpGame();
