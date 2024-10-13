@@ -1,5 +1,6 @@
 # Match-Game
-Use the Link Below to Access the code
+Use the Link Below to Access the website
+
 https://stephintomson2152003.github.io/Match-Game/ 
 
 # Card Matching Game with JavaScript
